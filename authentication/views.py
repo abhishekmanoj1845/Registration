@@ -33,20 +33,23 @@ def signup(request):
         
         if len(username)>15:
             messages.error(request,"Username must be under 15 characters")
+            return redirect('signup')
 
         if pass1!= pass2:
             messages.error(request,"Password didn't Match")
+            return redirect('signup')
 
         if not username.isalnum():
             messages.error(request,"Username must be alpha-numeric")
-
-        myuser = User.objects.create_user(username,email,pass1)
-        myuser.first_name = fname
-        myuser.first_name = lname
+            return redirect('signup')
+        else:
+            myuser = User.objects.create_user(username,email,pass1)
+            myuser.first_name = fname
+            myuser.last_name = lname
         
-        myuser.save()
+            myuser.save()
 
-        messages.success(request, " Your Account has been succesfully created... We have sent you a confirmation e-mail, please conform your account in order to activate your account")
+            messages.success(request, " Your Account has been succesfully created... We have sent you a confirmation e-mail, please conform your account in order to activate your account")
 
         # Welcome Email
         subject = "Welcome to GFG- Django Login!!"
@@ -74,7 +77,7 @@ def signin(request):
         
         else:
             messages.error(request, " Bad Credentials...")
-            return redirect('home')
+            return redirect('signin')
 
     
     return render(request,"authentication/signin.html")

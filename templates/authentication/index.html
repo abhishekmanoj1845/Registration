@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,5 +28,160 @@
     <button type="submit" ><a href="signin">Sign In</a></button>
     <button type="submit" ><a href="signup">Sign Up</a></button>
     {% endif %}
+</body>
+</html>
+ {% endcomment %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: #B3A492;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .content {
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 20px;
+            margin: 15px 10px;
+            border: none;
+            background: #4b94e2;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            border-radius: 15px;
+        }
+
+        .button:hover {
+            background: #0056b3;
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #F4BF96, transparent 50%, #CE5A67);
+            animation: slide 3s linear infinite;
+        }
+        a {
+        text-decoration: none;
+        /* Additional styles if needed */
+            }
+        .zoom-text {
+                font-size: 24px;
+                transition: font-size 0.5s; /* Smooth transition on font size change */
+                cursor: pointer;
+            }
+            
+        .zoom-text:hover {
+                font-size: 36px; /* Increase font size on hover */
+                {% comment %} background-color: #BFB29E; {% endcomment %}
+            }
+        .zoom-text-in {
+                font-size: 60px;
+                transition: font-size 0.5s; /* Smooth transition on font size change */
+                cursor: pointer;
+            }
+            
+        .zoom-text-in:hover {
+                font-size: 75px; /* Increase font size on hover */
+            }
+
+        @keyframes slide {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(200%);
+            }
+        }
+    </style>
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dissmissable fade show" role="alert">
+        <strong>Message:</strong>{{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% comment %} {% if user.is_authenticated %}
+    <h3>Hello{{fname}}</h3>
+    <h4>You have successfully logged in</h4>
+    <button type="submit" ><a href="signout">Sign Out</a></button>
+
+    {% else %}
+    <button type="submit" ><a href="signin">Sign In</a></button>
+    <button type="submit" ><a href="signup">Sign Up</a></button>
+    {% endif %} {% endcomment %}
+    <div class="container">
+        {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dissmissable fade show" role="alert">
+        <strong>Message:</strong>{{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+        <div class="content">
+            <h1 class="zoom-text-in">Welcome to Our Appolo</h1>
+            <p class="zoom-text">"Your Health, Our Priority"</p>
+            <div class="buttons">
+                {% comment %} <a href="#sign-in" class="button">Sign In</a>
+                <a href="#sign-up" class="button">Sign Up</a> {% endcomment %}
+                {% if user.is_authenticated %}
+                <h3>Hello {{fname}}</h3>
+                <h4>You have successfully logged in</h4>
+                <button type="submit" class="button" ><a href="signout">Sign Out</a></button>
+            
+                {% else %}
+                <button type="submit" class="button" ><a href="signin">Sign In</a></button>
+                <button type="submit" class="button"><a href="signup">Sign Up</a></button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="background-animation"></div>
+    </div>
 </body>
 </html>
