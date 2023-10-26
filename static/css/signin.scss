@@ -1,0 +1,144 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+ body {
+    background-image: url("https://raw.githubusercontent.com/saymir-sg/demo_images/master/forms-img/bg.jpg");
+    background-size: cover;
+    font-family: "sans-serif", Arial;
+  }
+  
+  .container {
+    width: 340px;
+    height: 380px;
+    margin: 40px auto;
+    border: 1px solid #eee;
+    box-shadow: 0px 0px 10px #d5d5d5;
+    background: #fcfcfc;
+  }
+  
+  .header {
+    margin-top: 40px;
+  }
+  
+  .logo {
+    width: 120px;
+    height: 120px;
+    background: #fcfcfc;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #e6173e;
+    //border: 1px solid #e6173e;
+  }
+  .text-logo {
+    color: #e6173e;
+    text-align: center;
+    font-size: 60px;
+    line-height: 120px;
+    text-shadow: 0px 0px 10px #e6173e;
+  }
+  
+  .form form {
+    padding: 20px;
+  }
+  
+  .form form p {
+    margin-top: 20px;
+  }
+  
+  .form form p i {
+    font-size: 40px;
+    margin-right: 10px;
+    line-height: 40px;
+    color: #000;
+  }
+  
+  .form-group {
+    width: 80%;
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding-left: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .form-group:focus {
+    border-bottom: 1px solid #e6173e;
+    outline: none;
+  }
+  
+  .form-btn {
+    width: 100%;
+    border: 1px solid #e6173e;
+    color: #fff;
+    background: #e6173e;
+    font-size: 22px;
+    line-height: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .form-btn:hover {
+    background: #e61333;
+  }
+  
+  .form .form-btn i {
+    font-size: 20px;
+    float: right;
+    right: 10px;
+    position: relative;
+    color: #fff;
+  }
+  
+  .check-icon {
+    color: #e6173e;
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  
+  .form form .footer {
+    text-align: center;
+  }
+  
+  .form form .footer i {
+    font-size: 16px;
+    margin-right: 0px;
+    color: #000;
+  }
+  .form form .footer a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .form form .footer a:hover {
+    color: #e6173e;
+  }
+  
+  .form .right-plus-sign {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000;
+    margin-left: 315px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px #555;
+  }
+  .form .right-plus-sign a {
+    color: #fff;
+    font-size: 40px;
+    text-decoration: none;
+    line-height: 50px;
+  }
+  
+  .form .right-plus-sign:hover {
+    background: #e6173e;
+  }
