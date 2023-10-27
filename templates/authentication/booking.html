@@ -1,0 +1,26 @@
+{% extends "authentication/base.html" %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+
+{% block title %}Appoinments{% endblock  %}
+
+
+
+{% block content %}
+
+<h1 class="text-center bg-info rounded my-30 mx-5" >Make An Appoinment</h1>
+<hr>
+
+<div class="container w-50  p-4 text-center my-30 mx-50 bg-info">
+
+    <form action="" method="POST"> 
+        {% csrf_token %}
+        <br>
+        {{form.as_p}}
+        <br>
+        <button class="bt btn-danger mb-5 p-20" type="Submit"> SUBMIT</button>
+    
+    </form>
+
+</div>
+
+{% endblock%}

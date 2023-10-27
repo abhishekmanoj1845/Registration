@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static '/css/signin.scss' %}">
     <link rel="stylesheet" href="{% static '/css/signin.processed.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     {% for message in messages %}
@@ -32,7 +33,9 @@
               </div>
           </div>
           <div class="container form">
-              <div class="right-plus-sign"><a href="signup.html" >+</a></div>
+              <div class="right-plus-sign"><a href="{% url 'signup' %}" >+</a></div>
+              
+              <div class="fa fa-home" style="font-size:50px"><a href="{% url 'home' %}" ></a></div>
               <form action="/signin" method="post">
                   {% csrf_token %} 
                   <p><i class="fa fa-user icon" aria-hidden="true"></i> <input type="text" id="username" name="username" class="form-group username" placeholder="Username" required /></p>

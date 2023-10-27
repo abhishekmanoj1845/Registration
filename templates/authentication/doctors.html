@@ -1,0 +1,26 @@
+{% extends "authentication/base.html" %}
+
+{% block title %}Doctors{% endblock  %}
+
+
+
+{% block content %} 
+<h1 class="text-center"> Our Doctors </h1>
+<hr>
+<div class='container text-center bg-primary'>
+    
+    {% for d in doctor %}
+        
+        <div class="card text-center mx-3 my-3" style="width: 18rem; display:inline-block">
+            <img class="card-img-top" src="{{ d.doc_image.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Dr. {{ d.doc_name }}</h5>
+              <p class="card-text">{{d.doc_spec}}</p>
+              <h6 class="card-text">{{d.dep_name}} Department</h6>
+            </div>
+          </div>
+    {% endfor %} 
+</div>
+
+
+{% endblock%}

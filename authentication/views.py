@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
 from gfg import settings
 from django.core.mail import EmailMessage, send_mail
+from .models import Deparments,doctors
+from .forms import BookingForm
 
 # Create your views here.
 def home(request):
@@ -25,7 +27,7 @@ def signup(request):
 
         if User.objects.filter(username=username):
             messages.error(request, "Username already exist, Please try some other username...")
-            return redirect('home')
+            return redirect('signup')
         
         if User.objects.filter(email=email):
             messages.error(request, "Email already registered, Please try some other email address...")
@@ -88,3 +90,30 @@ def signout(request):
     return redirect('home')
     
     # return render(request,signout.html)
+
+def first(request):
+    return render(request,'authentication/first.html')
+
+
+def Doctors(request):
+    dict_docs={
+        'doctor': doctors.objects.all()
+    }
+    return render(request,'authentication/doctors.html',dict_docs)
+
+def department(request):
+    dict_dept={
+        'dept': Deparments.objects.all()
+    }
+    return render(request,'authentication/department.html',dict_dept)
+def booking(request):
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,'authentication/conformation.html')
+    form = BookingForm()
+    dict_form ={
+        "form" : form
+    }
+    return render(request,'authentication/booking.html  ',dict_form)
