@@ -22,10 +22,12 @@ from .info import *
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Your SMTP server (e.g., smtp.gmail.com)
 EMAIL_PORT = 587  # The SMTP server port
+EMAIL_FROM ='abhiregister2@gmail.com'
 EMAIL_USE_TLS = True  # Use TLS for secure communication
-EMAIL_HOST_USER = 'greenbot36@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'Dontcare1234@'  # Your email password or an app-specific password
+EMAIL_HOST_USER = 'abhiregister2@gmail.com' # Your email address
+EMAIL_HOST_PASSWORD = 'zvbwrjpltlhqzmxl'  # Your email password or an app-specific password
 
+PASSWORD_RESET_TIMEOUT = 14400
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
